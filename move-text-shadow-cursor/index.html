@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="app, landing, corporate, Creative, Html Template, Template">
+    <meta name="author" content="web-themes">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- title -->
+    <title>Move Text Shadow Cursor</title>
+
+    <!-- favicon -->
+    <!-- <link href="img/favicon.png" type="image/png" rel="icon"> -->
+
+    <!-- all css here -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    
+    <div id="wrap">
+        <h1 id="title">Good Day!</h1>
+    </div>
+
+
+    <script>
+        
+        const container = document.getElementById('wrap');
+        const text = document.getElementById('title');
+
+        const distance = 30;
+
+        function setShadow(e) {
+
+            const width = this.offsetWidth;
+            const height = this.offsetHeight;
+
+            let x = e.offsetX;
+            let y = e.offsetY;
+
+            if (this !== e.target) {
+                x = x + e.target.offsetLeft;
+                y = y + e.target.offsetTop;
+            }
+
+            const xDistance = Math.round(( x / width * distance) - (distance / 2));
+            const yDistance = Math.round(( y / height * distance) - (distance / 2));
+
+            text.style.textShadow = `${xDistance}px ${yDistance}px #1c1e25`;
+
+        }
+
+        container.addEventListener('mousemove', setShadow);
+
+    </script>
+    
+</body>
+</html>
